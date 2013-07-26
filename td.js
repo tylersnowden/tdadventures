@@ -18,7 +18,7 @@ td.start = function(){
     var mapScene = new lime.Scene();
 	var mapLayer = new lime.Layer().setPosition(0,0).setRenderer(lime.Renderer.CANVAS).setAnchorPoint(0,0);
 
-	var gameMap = new lime.Sprite().setSize(640,1010).setFill('img/dirtBg.png').setPosition(0,0).setAnchorPoint(0,0);
+	var gameMap = new lime.Sprite().setSize(640,1010).setFill('img/sandbg.png').setPosition(0,0).setAnchorPoint(0,0);
 	
 	var daniel_animations = {
 		down_idle: [
