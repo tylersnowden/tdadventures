@@ -40,12 +40,26 @@ td.welcome = function() {
 td.play = function() {
     var playScene = new lime.Scene();
     var mapLayer = new lime.Layer().setPosition(0,0).setRenderer(lime.Renderer.CANVAS).setAnchorPoint(0,0);
-
+    
     var gameMap = new lime.Sprite().setSize(640,1010).setFill('img/bg.png').setPosition(0,0).setAnchorPoint(0,0);
 	
-    var tyler = new character('tyler', gameMap, false);
-    var daniel = new character('daniel', gameMap, false);
-    var kristie = new character('kristie', gameMap, true);
+    characters = new Array();
+    characters.push(new character('tyler', gameMap, false, 200, 400));
+    characters.push(new character('daniel', gameMap, false, 250, 450));
+    characters.push(new character('kristie', gameMap, true, 340, 300));
+    
+    goog.events.listen(characters[0].layer, ['mousedown','touchstart'], function(e) { 
+            for(var j=0;j<characters.length;j++) characters[j].selected = false;
+            characters[0].selected = true;
+    });   
+    goog.events.listen(characters[1].layer, ['mousedown','touchstart'], function(e) { 
+        for(var j=0;j<characters.length;j++) characters[j].selected = false;
+        characters[1].selected = true;
+    });
+    goog.events.listen(characters[2].layer, ['mousedown','touchstart'], function(e) { 
+            for(var j=0;j<characters.length;j++) characters[j].selected = false;
+            characters[2].selected = true;
+     });
     
     mapLayer.appendChild(gameMap);
     playScene.appendChild(mapLayer);
